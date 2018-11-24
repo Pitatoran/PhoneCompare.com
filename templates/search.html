@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="container">
+        <form method="POST" action="/search" class="container">
+    	    <input type="text" class="form-control" name="search" value="{{ request.form.search }}" placeholder="Search">
+    	    <button type="submit" class="btn btn-primary" name="searchBtn" value=search>Search</button>
+    	</form>
+
+    	<table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">display</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in results %}
+                    <tr>
+                        <th scope="row"><a href="/phone/{{i.phoneName}}/">{{ i.phoneName }}</a></th>
+                        <td>{{ i.display }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

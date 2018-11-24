@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="container">
+        <form method="POST" action="/compare" class="container">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="phoneOne" value="{{ request.form.phoneOne }}" placeholder="Phone One">
+            	    <button type="submit" class="btn btn-primary" name="phoneOneBtn" value=search>Search</button>
+
+                	<!-- <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">display</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="/phone/{{phoneOne.phoneName}}/">{{ phoneOne.phoneName }}</a></th>
+                                <td>{{ phoneOne.picture }}</td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+                </div>
+
+                <div class="col">
+                    <input type="text" class="form-control" name="phoneTwo" value="{{ request.form.phoneTwo }}" placeholder="Phone Two">
+                    <button type="submit" class="btn btn-primary" name="phoneTwoBtn" value=search>Search</button>
+
+                    <!-- <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">display</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="/phone/{{phoneTwo.phoneName}}/">{{ phoneTwo.phoneName }}</a></th>
+                                <td>{{ phoneTwo.picture }}</td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+                </div>
+            </div>
+
+            <!-- img -->
+            <div class="row">
+                {% if phoneOne != None %}
+                <div class="col">
+                    <!-- <img src="{{ url_for('static', filename='{{phoneOne.picture}}') }}"> -->
+                    <img src="{{phoneOne.picture}}" class="rounded mx-auto d-block" height="300px">
+                </div>
+                {% endif %}
+                {% if phoneTwo != None %}
+                <div class="col">
+                    <img src="{{phoneTwo.picture}}" class="rounded mx-auto d-block" height="300px">
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- display -->
+            <h2>Display</h2><hr>
+            <div class="row">
+                {% if phoneOne != None %}
+                <div class="col">
+                    <div class="m-5">
+                        {% for key, value in phoneOne.display.items() %}
+                            <h5>{{ key }}</h5>
+                            <p class="mb-4">{{ value }}<p>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if phoneTwo != None %}
+                <div class="col">
+                    <div class="m-5">
+                        {% for key, value in phoneTwo.display.items() %}
+                            <h5>{{ key }}</h5>
+                            <p class="mb-4">{{ value }}<p>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- sizeWeight -->
+            <h2>Size and Weight</h2><hr>
+            <div class="row">
+                {% if phoneOne != None %}
+                <div class="col">
+                    <div class="m-5">
+                    {% for key, value in phoneOne.sizeWeight.items() %}
+                        <h5>{{ key }}</h5>
+                        <p class="mb-4">{{ value }}<p>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if phoneTwo != None %}
+                <div class="col">
+                    <div class="m-5">
+                    {% for key, value in phoneTwo.sizeWeight.items() %}
+                        <h5>{{ key }}</h5>
+                        <p class="mb-4">{{ value }}<p>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- camera -->
+            <h2>Camera</h2><hr>
+            <div class="row">
+                {% if phoneOne != None %}
+                <div class="col">
+                    <div class="m-5">
+                    {% for key, value in phoneOne.camera.items() %}
+                        <h5>{{ key }}</h5>
+                        <p class="mb-4">{{ value }}<p>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if phoneTwo != None %}
+                <div class="col">
+                    <div class="m-5">
+                    {% for key, value in phoneTwo.camera.items() %}
+                        <h5>{{ key }}</h5>
+                        <p class="mb-4">{{ value }}<p>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- powerBattery -->
+            <h2>Battery</h2><hr>
+            <div class="row">
+                {% if phoneOne != None %}
+                <div class="col">
+                    <div class="m-5">
+                    {% for key, value in phoneOne.powerBattery.items() %}
+                        <h5>{{ key }}</h5>
+                        <p class="mb-4">{{ value }}<p>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if phoneTwo != None %}
+                <div class="col">
+                    <div class="m-5">
+                    {% for key, value in phoneTwo.powerBattery.items() %}
+                        <h5>{{ key }}</h5>
+                        <p class="mb-4">{{ value }}<p>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- software -->
+            <h2>Software</h2><hr>
+            <div class="row">
+                {% if phoneOne != None %}
+                <div class="col">
+                    <div class="m-5">
+                    {% for key, value in phoneOne.software.items() %}
+                        <h5>{{ key }}</h5>
+                        <p class="mb-4">{{ value }}<p>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if phoneTwo != None %}
+                <div class="col">
+                    <div class="m-5">
+                    {% for key, value in phoneTwo.software.items() %}
+                        <h5>{{ key }}</h5>
+                        <p class="mb-4">{{ value }}<p>
+                    {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+    	</form>
+    </div>
+
+{% endblock %}

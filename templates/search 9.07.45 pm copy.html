@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block body %}
+	<h1 class="text-center">Search Over 500 + Basic Words</h1>
+
+	<form method="POST" action="/search" class="container">
+	    <input type="text" class="form-control" name="search" value="{{ request.form.search }}" placeholder="Search">
+	    <button type="submit" class="btn btn-primary" name="searchBtn" value=search>Search</button>
+	</form>
+
+	<table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Chinese</th>
+                <th scope="col">Pin Yin</th>
+                <th scope="col">English</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in charList %}
+                <tr>
+                    <th scope="row">{{ i.id }}</th>
+                    <td>{{ i.chineseChar }}</td>
+                    <td>{{ i.pinYin }}</td>
+                    <td>{{ i.englishChar }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+	<!-- {{ errMsg }} -->
+
+{% endblock %}

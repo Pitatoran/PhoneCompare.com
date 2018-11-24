@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+        <title>Title</title>
+
+        <style>
+            .my-nav {
+                margin-top: 50px;
+            }
+
+            .index-heading {
+                margin-top: 80px;
+                margin-left: 80px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light my-nav">
+            <div class="container">
+                <a class="navbar-brand" href="/">ComparePhone.com</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <form class="nav-form form-inline">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto navbar-list">
+                            <li class="nav-item">
+                              <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/compare">Compare</a>
+                            </li>
+        					<li class="nav-item">
+                              <a class="nav-link" href="/search">Search</a>
+                            </li>
+        					<li class="nav-item">
+                                <a class="nav-link" href="/">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">More</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </nav>
+
+        <div class=container>
+            {% block body %}
+            {% endblock %}
+        </div>
+
+        {% for i in range(0, 5) %}
+            <br>
+        {% endfor %}
+
+        <footer class="page-footer font-small teal pt-4">
+            <div class="container-fluid text-center text-md-left">
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <h5 class="text-uppercase font-weight-bold">About Us</h5>
+                        <p>This Website was designed as an interest in Web Development.
+                            It may be at times be buggy, as I only just delve into the wonders
+                            dynamic Web Application.</p>
+                    </div>
+                    <!-- <hr class="clearfix w-100 d-md-none pb-3"> -->
+                    <div class="col-md-6 mb-md-0 mb-3">
+                      <h5 class="text-uppercase font-weight-bold">Specs</h5>
+                      <p>IDE: ATOM</p>
+                      <p>TESTING ENVIRONMENT: CHROME</p>
+                      <p>LANGUAGES: PYTHON, HTML, CSS, JAVASCRIPT</p>
+                      <p>EXTENSION: BOOTSTRAP 4, FLASK, JINJA</p>
+                      <p>OTHER: FONT AWESOME</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright text-center p-5">© 2018 Copyright:
+              <a href="/">ChineseLearning.com</a>
+            </div>
+        </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery, Popper.js, Bootstrap JS, Personal JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script>
+        </script>
+    </body>
+</html>
